@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+{% block head_title %} Edit Blog Post {% endblock %}
+{% load crispy_forms_tags %}
+
+
+
+
+
+{% block content %}
+    <h3 class="mb-4 font-serif">EDIT POST</h3>
+    <form method="POST" style="margin-top:-15px; border: none;">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <input type="submit" value="UPDATE" class="btn btn-success mt-1 mb-2">
+    </form>
+{% endblock content %}

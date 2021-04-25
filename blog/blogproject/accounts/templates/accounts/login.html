@@ -1,0 +1,32 @@
+{% extends 'base2.html'%}
+{% load crispy_forms_tags %}
+<title>{% block head_title %} User Login {% endblock %}</title>
+
+
+{% block content %}
+    <div class="content-section mt-5">
+        <form class="site-form" action="{% url 'account-login' %}" method="POST" enctype="multipart/form-data">
+            <fieldset class="form-group">
+                <legend class="">Log in</legend>
+                {% csrf_token %}
+                {{ login_form | crispy }}
+            </fieldset>
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{request.GET.next}}">   
+            {% endif %}
+    
+            <div class="form-group pt-2 pb-2">
+                <input type="submit" value="Log In" class="btn btn-outline-info">
+            </div>
+        </form>
+
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need an Account ? <a class="ml-2" href="{% url 'account-signup' %}">Sign Up</a>
+            </small>
+            <small class="text-muted">
+                or  <a class="ml-2" href="{% url 'reset_password' %}">Reset Password</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head_title %} User Registeration {% endblock %}
+{% load crispy_forms_tags %}
+
+
+ 
+
+{% block content %}
+    <div class="content-section">
+        <form action="{% url 'account-signup' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom md-4">Join Today</legend>
+                {{ signup_form| crispy }}
+            </fieldset>
+            <div class="form-group pt-2 pb-2">
+                <input type="submit" value="Sign Up" class="btn btn-outline-info">
+            </div>
+        </form>
+       <div class="border-top pt-3">
+           <small class="text-muted">
+               Already have an Account ? <a class="ml-2" href="{% url 'account-login' %}">Sign In</a>
+            </small>
+       </div>
+    </div>
+{% endblock content %}

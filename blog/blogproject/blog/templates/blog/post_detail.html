@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block head_title %} Post Details {% endblock %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block content %}
+
+    <!--ARTICLE DETAILS SECTION-->
+    <article class="media content-section">
+        <div class="media-body ">
+            <div class="article-metadata">
+                <div class="article-content">
+                    <h2 class="font-serif">{{posts.title}}</h2>
+                    <p class="font-monospace">Article By <b style="text-transform: capitalize;">{{ posts.author }}</b>
+                    <small class="text-muted">| {{ posts.date_posted|date:"F d, Y" }}</small>
+                    {% if comments %}
+                        <small class="font-serif comment-count"> {{ comments.count }} Comment(s) </small>
+                    {% else %}
+                        <small class="font-serif comment-count"> No Comments </small>
+                    {% endif %}
+                    </p>
+                    <p class="comment-body">{{ posts.body }}</p>
+                    {% if posts.author == user %}  
+                    <a href="{% url 'edit-post' posts.pk %}" class="btn btn-secondary comment-body btn-sm mb-2"> Update Post</a>
+                    <a href="{% url 'delete-post' posts.pk %}" class="btn btn-danger comment-body btn-sm mb-2"> Delete Post</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+    <!--COMMENT SECTION-->
+    <!--Comment Form-->
+    <article class="media content-section">
+        {% if user.is_authenticated %}
+            <div class="article-detail comment-section comment-form">
+                {% if new_comment %}
+                    <h3 class="mb-4 font-serif">Leave a comment</h3>
+                    <form method="POST" style="margin-top:-15px; border: none;">
+                        {{ comment_form|crispy}}
+                        {% csrf_token %}
+                        <input type="submit" value="POST COMMENT" class="btn btn-success mt-1 mb-2">
+                    </form>
+                {%else%}
+                    <h3 class="mb-4 font-serif">Leave a comment</h3>
+                    <form method="POST" style="margin-top:-15px; border: none;">
+                        {{ comment_form|crispy}}
+                        {% csrf_token %}
+                        <input type="submit" value="POST COMMENT" class="btn btn-success mt-1 mb-2">
+                    </form>
+                {% endif %}
+            </div>
+        {% else %}
+            <h3 class="mb-4 font-serif">Leave a comment</h3>
+            <form method="POST" style="margin-top:-15px; border: none;" action="{% url 'account-login' %}">
+                {% csrf_token %}
+                <input type="submit" value="ADD COMMENT" class="btn btn-success mt-1 mb-2">
+            </form>
+        {% endif %}
+
+    
+        <!--Comments-->
+        <div class="media-body ">
+            {% if comments %}
+                <h4 class="font-serif comment-count">{{ comments.count }} Comments</h4>
+            {% else %}
+                <h4 class="font-serif comment-count"> No Comment</h4>
+            {% endif %}
+            <hr>
+            {% for comment in comments %}
+                <div class="article-metadata comment">
+                    <div class="comment-content">
+                        <p class="font-monospace">Comment by <b style="text-transform: capitalize;">{{ comment.comment_author }}</b>
+                        <small class="text-muted">| {{ comment.commented_on|date:"F d, Y" }}</small>
+                        </p>
+                        <p class="comment-body">{{ comment.comment }}</p>
+                        {% if comment.comment_author == user %}  
+                            <a href="{% url 'edit-comment' comment.pk %}" class="btn btn-secondary comment-body btn-sm mb-2"> Update Comment</a>
+                            <a href="{% url 'delete-comment' comment.pk %}" class="btn btn-danger comment-body btn-sm mb-2"> Delete Comment</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </article>
+
+{% endblock content %}
