@@ -1,4 +1,4 @@
-# baytechblog
+# baytechblog   https://baytechblog.herokuapp.com/
 Blog was developed as task on internship trainings.
 This is a blog website developed using python django framework TOOLS USED Python Django Framwok Sqlite3 Django-crispy-forms( for scaling the blog looks ) html css bootstrap4.
 At the front page of the blog, you get to see the posts lists with few of the post body, you will have to click on either the title or read more to read in detail. 
@@ -9,3 +9,4 @@ Only a registered member can add new post and can add comments to other users po
 On visiting,you have access to: Homepage, About Author, User Registeration Page, User Login Page. 
 On successful registeration and login you have access additional access that enables you to create posts, and add comments to posts. 
 NOTE: only the author of a post can update/edit or delete a post, a different author can't delete or update another author's posts.
+The url to the website is at the top, feel free to navaigate and also let me know what you think through the comment section
