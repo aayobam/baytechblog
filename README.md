@@ -1,6 +1,7 @@
 # baytechblog   https://baytechblog.herokuapp.com/
 Blog was developed as task on internship trainings.
-This is a blog website developed using python django framework TOOLS USED Python Django Framwok Sqlite3 Django-crispy-forms( for scaling the blog looks ) html css bootstrap4.
+This is a blog website developed using python django framework.
+TOOLS USED: Python Django Framework, Postgresql Database, Django-crispy-forms( for scaling the blog looks), Html, css and bootstrap4.
 At the front page of the blog, you get to see the posts lists with few of the post body, you will have to click on either the title or read more to read in detail. 
 You will notice a paragraph at the top of each post detail page that shows numbers of comments present on there.
 Yes you will need to be a logged in user to add comments. 
