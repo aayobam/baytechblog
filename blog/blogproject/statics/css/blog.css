@@ -171,3 +171,7 @@ a.article-title:hover {
   color: rgba(8, 8, 151, 0.699);
 }
 
+.alert, .alert-error{
+  background-color: rgba(255, 0, 0, 0.747);
+  color: whitesmoke;
+}

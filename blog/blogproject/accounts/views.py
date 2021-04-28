@@ -6,11 +6,11 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import AccountUpdateForm
+import time
 
 
 
 # Using function based view all throughout
-
 def signup_view(request):
     template_name = "accounts/signup.html"
     if request.method == 'POST':
@@ -18,8 +18,13 @@ def signup_view(request):
         if signup_form.is_valid():
             user = signup_form.save(commit=False)
             user.save()
-            messages.success(request, f"your account has successfully been created, you can now log in".capitalize())
+            time.sleep(2)
+            messages.success(request, f" Your account has successfully been created, you can now log in".capitalize())
+            time.sleep(2)
             return redirect('account-login')
+        else:
+            messages.error(request, f" Some of your information are either existing or not matching, try again")
+            return redirect('account-signup')
     else:
         template_name = "accounts/signup.html"
     signup_form = UserRegister()
@@ -33,8 +38,13 @@ def login_view(request):
         login_form = AuthenticationForm(data=request.POST)
         if login_form.is_valid():
             user = login_form.get_user()
-            messages.success(request, f"you are successfully logged in {user}".capitalize())
+            messages.success(request, f"welcome {user}, you are now logged in".capitalize())
+            time.sleep(3)
             login(request, user)
+            return redirect("post-list")
+        else:
+            messages.error(request, f"Invalid Username or password")
+            return redirect('account-login')
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
