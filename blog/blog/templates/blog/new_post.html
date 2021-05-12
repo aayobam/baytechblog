@@ -1,0 +1,15 @@
+{% extends 'base2.html' %}
+{% block head_title %} New Blog Post {% endblock %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+    <div class="mt-3">
+        <form method="POST"  style="margin-top:-15px; border: none;">
+            {{ form|crispy}}
+            {% csrf_token %}
+            <input type="submit" value="CREATE NEW POST" class="btn btn-success mt-1 mb-2">
+        </form>
+    </div>
+{% endblock content %}

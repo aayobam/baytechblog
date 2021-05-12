@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block head_title %} Blog Home {% endblock %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block content %}
+    <!--ARTICLE LIST SECTION-->
+    {% for post in posts %}
+        <article class="media content-section">
+            <div class="media-body ">
+                <div class="article-metadata">
+                    <div class="article-content">
+                        <h2 class="font-serif"><a href="{{post.pk}}">{{post.title}}</a></h2>
+                        <p class="font-monospace">Article By <b style="text-transform: capitalize;">{{ post.author }}</b>
+                        <small class="text-muted">| {{ post.date_posted|date:"F d, Y" }} </small>
+                        {% if post.comments %}
+                            <small class="font-serif comment-count"> {{ post.comments.count }} Comment(s) </small>
+                        {% elif not post.comments %}
+                            <small class="font-serif comment-count"> No Comments </small>
+                        {% endif %}
+                        <p class="comment-body">{{ post.snippet }} <a href="{% url 'post-detail' post.pk %}">Continue Reading</a></p>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
