@@ -59,7 +59,7 @@ def detail_view(request, pk):
 
 
 # Enables only authenticated users to create new post(s)
-class BlogCreateView(CreateView):
+class BlogCreateView(CreateView, LoginRequiredMixin):
     model = Post
     template_name = "blog/new_post.html"
     fields = ["title", "body"]
@@ -70,7 +70,7 @@ class BlogCreateView(CreateView):
 
 
 
-class BlogUpdateView(UpdateView):
+class BlogUpdateView(UpdateView, LoginRequiredMixin):
     model = Post
     template_name = "blog/post_edit.html"
     fields = ["title", "body"]
@@ -82,7 +82,7 @@ class BlogUpdateView(UpdateView):
     
    
     
-class BlogDeleteView(DeleteView):
+class BlogDeleteView(DeleteView, LoginRequiredMixin):
     model = Post
     template_name = "blog/post_delete.html"
     fields = ["title","body"]
@@ -96,7 +96,7 @@ class BlogDeleteView(DeleteView):
         return super().form_valid(form)
     
     
-class CommentUpdateView(UpdateView):
+class CommentUpdateView(UpdateView, LoginRequiredMixin):
     model = Comment
     template_name = "blog/comment_edit.html"
     fields = ["comment"]
@@ -111,7 +111,7 @@ class CommentUpdateView(UpdateView):
     
 
 # Deletes comment
-class CommentDeleteView(DeleteView):
+class CommentDeleteView(DeleteView, LoginRequiredMixin):
     model = Comment
     template_name = "blog/comment_delete.html"
     success_url = reverse_lazy('post-list')
