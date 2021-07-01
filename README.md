@@ -8,6 +8,7 @@
 * You can opt in to register an account if you would like to read posts and also add comments, if you only want to read then you don't really need to be a registered member. 
 * Only a registered member can add new post and can add comments to other users posts. 
 * On visiting,you have access to: Homepage, About Author, User Registeration Page, User Login Page. 
-* On successful registeration and login you have access additional access that enables you to create posts, and add comments to posts. 
+* On successful registeration and login, you have additional access that enables you to create posts, and add comments to posts. 
 * NOTE: only the author of a post can update/edit or delete a post, a different author can't delete or update another author's posts.
-* The url to the website is at the top, feel free to navaigate and also let me know what you think through the comment section. 😎 😎
+* NOTE: only the author of a comment can update/edit or delete a post, a different comment's author can't delete or update another author's comment.
+* The url to the website is at the top, feel free to navigate and also let me know what you think through the comment section, cheers. 😎 😎
