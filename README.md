@@ -10,4 +10,4 @@
 * On visiting,you have access to: Homepage, About Author, User Registeration Page, User Login Page. 
 * On successful registeration and login you have access additional access that enables you to create posts, and add comments to posts. 
 * NOTE: only the author of a post can update/edit or delete a post, a different author can't delete or update another author's posts.
-* The url to the website is at the top, feel free to navaigate and also let me know what you think through the comment section
+* The url to the website is at the top, feel free to navaigate and also let me know what you think through the comment section. 😎 😎
