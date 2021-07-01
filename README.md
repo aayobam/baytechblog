@@ -11,4 +11,5 @@
 * On successful registeration and login, you have additional access that enables you to create posts, and add comments to posts. 
 * NOTE: only the author of a post can update/edit or delete a post, a different author can't delete or update another author's posts.
 * NOTE: only the author of a comment can update/edit or delete a post, a different comment's author can't delete or update another author's comment.
+* More Features coming soon ✊ ✊
 * The url to the website is at the top, feel free to navigate and also let me know what you think through the comment section, cheers. 😎 😎
