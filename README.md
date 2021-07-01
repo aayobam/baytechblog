@@ -1,4 +1,4 @@
-# baytechblog   https://baytechblog.herokuapp.com/
+# :smile: baytechblog   https://baytechblog.herokuapp.com/
 * Blog was developed as task on internship trainings.
 * This is a blog website developed using python django framework.
 * TOOLS USED: Python Django Framework, Postgresql Database, Django-crispy-forms( for scaling the blog looks), Html, css and bootstrap4.
